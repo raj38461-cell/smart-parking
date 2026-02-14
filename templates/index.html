@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User View</title>
+    <style>
+        body { text-align:center; font-family:Arial; }
+        .slot {
+            padding:20px;
+            margin:10px;
+            width:120px;
+            display:inline-block;
+            color:white;
+            font-weight:bold;
+        }
+        .available { background-color:green; }
+        .occupied { background-color:red; }
+    </style>
+</head>
+<body>
+
+<h2>Smart Parking System (User View)</h2>
+<a href="/admin">Admin Login</a>
+<br><br>
+
+{% for i in range(slots|length) %}
+    <div class="slot {% if slots[i]=='Available' %}available{% else %}occupied{% endif %}">
+        Slot {{i+1}} <br>
+        {{slots[i]}}
+    </div>
+{% endfor %}
+
+</body>
+</html>
